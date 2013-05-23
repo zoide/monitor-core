@@ -20,14 +20,13 @@ ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 endif
 
 
-config.status: configure
+config.status: 
 	dh_testdir
 	# Just in case, make sure changelog exists
 	touch ChangeLog
 	# Add here commands to configure the package.
+	autoreconf -i --force --install
 	./bootstrap
-	autoreconf
-	autoconf
 	chmod +x configure libmetrics/configure
 	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
 		--prefix=/usr --mandir=\$${prefix}/share/man \
@@ -35,6 +34,7 @@ config.status: configure
 		--sysconfdir=/etc/ganglia \
 		--infodir=\$${prefix}/share/info --enable-shared \
 		--with-gmetad  
+
 build: build-stamp
 	make -C web
 
