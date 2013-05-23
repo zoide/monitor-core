@@ -25,6 +25,7 @@ config.status: configure
 	# Just in case, make sure changelog exists
 	touch ChangeLog
 	# Add here commands to configure the package.
+	autoconf
 	./bootstrap
 	chmod +x configure libmetrics/configure
 	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
