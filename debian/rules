@@ -4,7 +4,7 @@
 PACKAGE = ganglia
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 
 # These are used for cross-compiling and for saving the configure script
 # from having to guess our platform (since we know it already)
@@ -21,13 +21,15 @@ endif
 
 
 config.status: configure
+	
+configure:
 	dh_testdir
 	# Just in case, make sure changelog exists
 	touch ChangeLog
 	# Add here commands to configure the package.
 	./bootstrap
-	autoreconf
-	autoconf
+	autoreconf ./libmetrics
+	# Configuring it all
 	chmod +x configure libmetrics/configure
 	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
 		--prefix=/usr --mandir=\$${prefix}/share/man \
@@ -35,6 +37,7 @@ config.status: configure
 		--sysconfdir=/etc/ganglia \
 		--infodir=\$${prefix}/share/info --enable-shared \
 		--with-gmetad  
+
 build: build-stamp
 	make -C web
 
