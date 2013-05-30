@@ -42,7 +42,6 @@ config.status:
 		--with-gmetad  
 
 build: build-stamp
-	make -C web
 
 build-stamp:  config.status
 	dh_testdir
