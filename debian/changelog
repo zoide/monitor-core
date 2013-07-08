@@ -1,6 +1,6 @@
-ganglia (3.6.0-1wheezy1) wheezy; urgency=low
+ganglia (3.6.0-1precise1) precise; urgency=low
 
-  * version bump for wheezy 
+  * version bump for precise 
 
  -- Udo Waechter <u.waechter@mysportgroup.de>  Tue, 11 Jun 2013 15:20:53 +0200
 
