@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Stuart Teasdale <sdt@debian.org>
 Homepage: http://www.ganglia.info/
-Build-Depends: debhelper (>> 5.0.0), librrd2-dev, autoconf, autotools-dev, automake, libapr1-dev, libexpat1-dev, python-dev, libconfuse-dev, po-debconf, libxml2-dev, libdbi0-dev, libpcre3-dev, gperf, libtool, git, rsync
+Build-Depends: debhelper (>> 5.0.0), librrd2-dev, autoconf, autotools-dev, automake, libapr1-dev, libexpat1-dev, python-dev, libconfuse-dev, po-debconf, libxml2-dev, libdbi0-dev, libpcre3-dev, gperf, libtool, git, rsync, libmemcached-dev
 Standards-Version: 3.8.4
 
 Package: ganglia-monitor
@@ -26,7 +26,7 @@ Description: cluster monitoring toolkit - python modules
 
 Package: gmetad
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, adduser, libganglia1 (=${binary:Version})
+Depends: ${misc:Depends}, ${shlibs:Depends}, adduser, libganglia1 (=${binary:Version}), libmemcached10
 Suggests: ganglia-monitor, ganglia-webfrontend
 Description: cluster monitoring toolkit - Ganglia Meta-Daemon
  Ganglia is a scalable, real-time cluster monitoring environment 
