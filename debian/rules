@@ -39,7 +39,7 @@ config.status:
 		--libdir=\$${prefix}/lib \
 		--sysconfdir=/etc/ganglia \
 		--infodir=\$${prefix}/share/info --enable-shared \
-		--with-gmetad  
+		--with-gmetad --with-memcached 
 
 build: build-stamp
 
